@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+
+    /* http://meyerweb.com/eric/tools/css/reset/
+       v2.0 | 20110126
+       License: none (public domain)
+    */
+
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+    	margin: 0;
+    	padding: 0;
+    	border: 0;
+    	font-size: 100%;
+    	font: inherit;
+    	vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section {
+    	display: block;
+    }
+    body {
+    	line-height: 1;
+    }
+    ol, ul {
+    	list-style: none;
+    }
+    blockquote, q {
+    	quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+    	content: '';
+    	content: none;
+    }
+    table {
+    	border-collapse: collapse;
+    	border-spacing: 0;
+    }
+
+
+    /* Next & previous buttons */
+    .next {
+      cursor: auto;
+      position: absolute;
+    	margin-left: 2vw;
+      top: 0%;
+      width: 100%;
+    	height: 100%;
+      /* padding: 16px; */
+      /* margin-top: -22px; */
+      color: white;
+    	opacity: 0;
+      /* font-weight: bold;
+      font-size: 18px; */
+      /* transition: 0.6s ease; */
+      /* border-radius: 0 3px 3px 0; */
+      user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      /* border-radius: 3px 0 0 3px; */
+    }
+
+    /* On hover, add a grey background color */
+    /* .prev:hover, .next:hover {
+      background-color: #f1f1f1;
+      color: black;
+    } */
+
+
+    .bubbles {
+      position: -webkit-sticky; /* Safari */
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      padding: 1rem;
+      font-family: 'Arial';
+      font-size: 17px;
+      color: black;
+    }
+    .bubble {
+      padding:3rem;
+      background-color: #BCC6CC;
+      max-width: 17rem;
+      min-width: 17rem;
+      border-radius: 5rem;
+
+    }
+    .description {
+      display: none;
+      position: relative;
+      top:1rem;
+    }
+    .extra {
+      display: none;
+      position: relative;
+      top:2rem;
+    }
+    .project {
+      cursor: pointer;
+      max-width: auto;
+      position: relative;
+    	padding: 1rem;
+
+    }
+    .project:hover .description {
+      display: block;
+    }
+    .project:hover .extra {
+      display: block;
+    }
+    img {
+      width: 100%;
+      height: calc(100vh - 4rem);
+      object-fit: contain;
+      object-position: 0% 0%;
+
+    }
+    .images img {
+      display: none;
+    }
+    .images img.active {
+      display: block;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="projects">
+    <div class="project">
+      <div class="images">
+        <img class="active" src="images/textile/tapestry4.jpg">
+        <img src="images/textile/tapestry1.jpg">
+        <img src="images/textile/tapestry3.jpg">
+      </div>
+      <div class="bubbles">
+        <div class="bubble description">Hand-tufted tapestry, 2017</div>
+          <div class="bubble about">about you</div>
+        </div>
+      </div>
+
+
+    <div class="project">
+      <div class="images">
+        <img class="active" src="images/print/nicolas1.png">
+        <img src="images/print/nicolas.png">
+      </div>
+      <div class="bubbles">
+        <div class="bubble extra">Typeface 'Nicolas Cage', 2017 </div>
+        <div class="bubble description">In collaboration with Pablo Bardinet.</div>
+        <div class="bubble about">Sissel Vejby Møller.</div>
+      </div>
+    </div>
+
+
+    <div class="project">
+      <div class="images">
+        <img class="active" src="images/print/poster-digital-1.png">
+      </div>
+      <div class="bubbles">
+        <div class="bubble extra">Identity for a book-cover exhibition and shop, 2018. </div>
+        <div class="bubble description">In collaboration with Stepan Lipatov. </div>
+        <div class="bubble about">Sissel Vejby Møller.</div>
+      </div>
+    </div>
+
+
+    <div class="project">
+      p4
+    </div>
+
+
+    <div class="project">
+      p4
+    </div>
+
+
+  </div>
+
+  <script>
+    var allImages = document.querySelectorAll('.images');
+    allImages.forEach(function(i) {
+      i.addEventListener('click', function(e) {
+        var activeImage = i.querySelector('img.active');
+        activeImage.classList.remove('active');
+        var next = activeImage.nextElementSibling;
+        if(next) {
+          next.classList.add('active');
+        } else {
+          i.querySelector('img').classList.add('active');
+        }
+
+      });
+    });
+
+  </script>
+
+</body>
+</html>
